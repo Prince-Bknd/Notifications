@@ -9,6 +9,8 @@ import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { Wifi, WifiOff, Zap, Globe, MessageSquare, Activity, CheckCircle, XCircle, AlertCircle } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import { useEnv } from "@/hooks/use-env"
+import HealthIndicator from "@/components/HealthIndicator/HealthIndicator"
 
 interface Notification {
   id: string
@@ -24,6 +26,7 @@ export default function WebSocketApp() {
   const [notifications, setNotifications] = useState<Notification[]>([])
   const [connectionStatus, setConnectionStatus] = useState<string>("Disconnected")
   const clientRef = useRef<Client | null>(null)
+  const { appEnv, websocketUrl } = useEnv()
 
   const addNotification = (notification: Omit<Notification, "id" | "timestamp">) => {
     const newNotification: Notification = {
@@ -46,13 +49,13 @@ export default function WebSocketApp() {
     setConnectionStatus("Connecting...")
 
     const client = new Client({
-      webSocketFactory: () => new SockJS(process.env.NEXT_PUBLIC_WEBSOCKET_URL || "ws://localhost:8080/ws"),
+      webSocketFactory: () => new SockJS(websocketUrl),
       connectHeaders: {
         login: "user",
         passcode: "password",
       },
       debug: (str) => {
-        if (process.env.NEXT_PUBLIC_APP_ENV === "development") {
+        if (appEnv === "DEVELOPMENT") {
           console.log("STOMP Debug:", str)
         }
       },
@@ -175,6 +178,9 @@ export default function WebSocketApp() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+      {/* Health Indicator */}
+      <HealthIndicator />
+      
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -inset-10 opacity-20">
@@ -224,7 +230,7 @@ export default function WebSocketApp() {
                     <span className="font-medium">Status: {connectionStatus}</span>
                   </div>
                   <Badge variant={isConnected ? "default" : "secondary"}>
-                    {process.env.NEXT_PUBLIC_APP_ENV?.toUpperCase() || "DEV"}
+                    {appEnv}
                   </Badge>
                 </div>
 
@@ -408,15 +414,15 @@ export default function WebSocketApp() {
 
               <Separator className="bg-gray-700" />
 
-              <div className="text-center">
-                <p className="text-gray-400 text-sm">
-                  Current Environment:{" "}
-                  <Badge variant="outline">{process.env.NEXT_PUBLIC_APP_ENV?.toUpperCase() || "DEVELOPMENT"}</Badge>
-                </p>
-                <p className="text-gray-500 text-xs mt-1">
-                  WebSocket URL: {process.env.NEXT_PUBLIC_WEBSOCKET_URL || "ws://localhost:8080/ws"}
-                </p>
-              </div>
+                              <div className="text-center">
+                  <div className="text-gray-400 text-sm">
+                    Current Environment:{" "}
+                    <Badge variant="outline">{appEnv}</Badge>
+                  </div>
+                  <div className="text-gray-500 text-xs mt-1">
+                    WebSocket URL: {websocketUrl}
+                  </div>
+                </div>
             </CardContent>
           </Card>
         </motion.div>

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Globe, Wifi, WifiOff, Activity, CheckCircle, XCircle } from "lucide-react"
+import { useEnv } from "@/hooks/use-env"
 
 import TechnologyCards from "../TechnologyCards/TechnologyCards"
 import "./ConnectionPanel.css"
@@ -23,6 +24,7 @@ export default function ConnectionPanel({
   onConnect,
   onDisconnect,
 }: ConnectionPanelProps) {
+  const { appEnv } = useEnv()
   const getStatusIcon = () => {
     if (isConnecting) return <Activity className="status-icon animate-spin" />
     if (isConnected) return <CheckCircle className="status-icon status-connected" />
@@ -46,7 +48,7 @@ export default function ConnectionPanel({
             <span className="status-text">Status: {connectionStatus}</span>
           </div>
           <Badge variant={isConnected ? "default" : "secondary"} className="env-badge">
-            {process.env.NEXT_PUBLIC_APP_ENV?.toUpperCase() || "DEV"}
+            {appEnv}
           </Badge>
         </div>
 

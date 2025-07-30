@@ -1,0 +1,92 @@
+.technology-overview-card {
+  background: rgba(31, 41, 55, 0.5);
+  border: 1px solid #374151;
+  backdrop-filter: blur(8px);
+}
+
+.technology-overview-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.technology-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.technology-section {
+  padding: 0;
+}
+
+.technology-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.tech-blue {
+  color: #93c5fd;
+}
+
+.tech-purple {
+  color: #c4b5fd;
+}
+
+.tech-pink {
+  color: #f9a8d4;
+}
+
+.tech-green {
+  color: #86efac;
+}
+
+.technology-description {
+  color: #d1d5db;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.technology-separator {
+  background-color: #374151;
+}
+
+.environment-info {
+  text-align: center;
+}
+
+.environment-text {
+  color: #9ca3af;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.environment-badge {
+  margin-left: 0.5rem;
+}
+
+.websocket-url {
+  color: #6b7280;
+  font-size: 0.75rem;
+  font-family: monospace;
+  background: rgba(55, 65, 81, 0.3);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .technology-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .environment-info {
+    padding: 0 1rem;
+  }
+
+  .websocket-url {
+    word-break: break-all;
+  }
+}

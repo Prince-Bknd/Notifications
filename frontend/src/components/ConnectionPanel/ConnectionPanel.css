@@ -1,0 +1,104 @@
+.connection-panel-card {
+  background: rgba(31, 41, 55, 0.5);
+  border: 1px solid #374151;
+  backdrop-filter: blur(8px);
+}
+
+.connection-panel-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.title-icon {
+  height: 1.25rem;
+  width: 1.25rem;
+  color: #60a5fa;
+}
+
+.connection-panel-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.status-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: rgba(55, 65, 81, 0.3);
+  border-radius: 0.5rem;
+}
+
+.status-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.status-icon {
+  height: 1rem;
+  width: 1rem;
+}
+
+.status-connected {
+  color: #10b981;
+}
+
+.status-disconnected {
+  color: #ef4444;
+}
+
+.status-text {
+  font-weight: 500;
+}
+
+.env-badge {
+  font-size: 0.75rem;
+}
+
+.connection-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.connect-button {
+  flex: 1;
+  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+  transition: all 0.3s ease;
+}
+
+.connect-button:hover:not(:disabled) {
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  transform: translateY(-1px);
+}
+
+.disconnect-button {
+  border-color: #ef4444;
+  color: #f87171;
+  background: transparent;
+}
+
+.disconnect-button:hover:not(:disabled) {
+  background-color: #ef4444;
+  color: white;
+}
+
+.button-icon {
+  margin-right: 0.5rem;
+  height: 1rem;
+  width: 1rem;
+}
+
+@media (max-width: 768px) {
+  .connection-buttons {
+    flex-direction: column;
+  }
+
+  .status-display {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}

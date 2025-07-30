@@ -1,0 +1,68 @@
+.animated-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.background-overlay {
+  position: absolute;
+  inset: -2.5rem;
+  opacity: 0.2;
+}
+
+.floating-orb {
+  position: absolute;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+  filter: blur(40px);
+  animation: float 6s ease-in-out infinite;
+}
+
+.orb-1 {
+  top: 25%;
+  left: 25%;
+  width: 24rem;
+  height: 24rem;
+  background: #3b82f6;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  top: 75%;
+  right: 25%;
+  width: 24rem;
+  height: 24rem;
+  background: #8b5cf6;
+  animation-delay: 2s;
+}
+
+.orb-3 {
+  bottom: 25%;
+  left: 50%;
+  width: 24rem;
+  height: 24rem;
+  background: #ec4899;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+  }
+  33% {
+    transform: translateY(-20px) translateX(10px) scale(1.1);
+  }
+  66% {
+    transform: translateY(10px) translateX(-10px) scale(0.9);
+  }
+}
+
+@media (max-width: 768px) {
+  .orb-1,
+  .orb-2,
+  .orb-3 {
+    width: 16rem;
+    height: 16rem;
+  }
+}

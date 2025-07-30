@@ -1,9 +1,11 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
+import { useEnv } from "@/hooks/use-env"
 import "./TechnologyOverview.css"
 
 export default function TechnologyOverview() {
+  const { appEnv, websocketUrl } = useEnv()
   const technologies = [
     {
       title: "WebSocket Protocol",
@@ -50,15 +52,15 @@ export default function TechnologyOverview() {
         <Separator className="technology-separator" />
 
         <div className="environment-info">
-          <p className="environment-text">
+          <div className="environment-text">
             Current Environment:{" "}
             <Badge variant="outline" className="environment-badge">
-              {process.env.NEXT_PUBLIC_APP_ENV?.toUpperCase() || "DEVELOPMENT"}
+              {appEnv}
             </Badge>
-          </p>
-          <p className="websocket-url">
-            WebSocket URL: {process.env.NEXT_PUBLIC_WEBSOCKET_URL || "ws://localhost:8080/ws"}
-          </p>
+          </div>
+          <div className="websocket-url">
+            WebSocket URL: {websocketUrl}
+          </div>
         </div>
       </CardContent>
     </Card>

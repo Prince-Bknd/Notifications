@@ -5,6 +5,12 @@
   z-index: 1000;
 }
 
+.health-indicator-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .health-indicator {
   display: flex;
   align-items: center;

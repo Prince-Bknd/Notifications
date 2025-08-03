@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Badge } from "@/components/ui/badge"
 import { CheckCircle, XCircle, Activity, AlertCircle } from "lucide-react"
 import { useBackendHealth } from "@/hooks/use-backend-health"
+import { SimpleThemeToggle } from "@/components/simple-theme-toggle"
 import "./HealthIndicator.css"
 
 export default function HealthIndicator() {
@@ -41,12 +42,14 @@ export default function HealthIndicator() {
 
   return (
     <div className="health-indicator-container">
-      <div 
-        className={`health-indicator ${getStatusColor()}`}
-        onMouseEnter={() => setShowDetails(true)}
-        onMouseLeave={() => setShowDetails(false)}
-        onClick={checkHealth}
-      >
+      <div className="health-indicator-wrapper">
+        <SimpleThemeToggle />
+        <div 
+          className={`health-indicator ${getStatusColor()}`}
+          onMouseEnter={() => setShowDetails(true)}
+          onMouseLeave={() => setShowDetails(false)}
+          onClick={checkHealth}
+        >
         <div className="health-status">
           {getStatusIcon()}
           <span className="health-text">{getStatusText()}</span>
@@ -78,6 +81,7 @@ export default function HealthIndicator() {
             </div>
           </div>
         )}
+        </div>
       </div>
     </div>
   )

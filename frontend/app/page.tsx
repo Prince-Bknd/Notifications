@@ -177,16 +177,16 @@ export default function WebSocketApp() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 text-gray-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 dark:text-white">
       {/* Health Indicator */}
       <HealthIndicator />
       
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -inset-10 opacity-20">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-          <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
-          <div className="absolute bottom-1/4 left-1/2 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500 dark:bg-blue-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+          <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-purple-500 dark:bg-purple-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
+          <div className="absolute bottom-1/4 left-1/2 w-96 h-96 bg-pink-500 dark:bg-pink-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000"></div>
         </div>
       </div>
 
@@ -201,7 +201,7 @@ export default function WebSocketApp() {
           <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-4">
             WebSocket Connection Hub
           </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Real-time communication using STOMP protocol over SockJS WebSocket connection
           </p>
         </motion.div>
@@ -214,7 +214,7 @@ export default function WebSocketApp() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-2"
           >
-            <Card className="bg-gray-800/50 border-gray-700 backdrop-blur-sm">
+            <Card className="bg-white/80 dark:bg-gray-800/50 border-gray-200 dark:border-gray-700 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Globe className="h-5 w-5 text-blue-400" />
@@ -224,7 +224,7 @@ export default function WebSocketApp() {
               </CardHeader>
               <CardContent className="space-y-6">
                 {/* Status Display */}
-                <div className="flex items-center justify-between p-4 bg-gray-700/30 rounded-lg">
+                <div className="flex items-center justify-between p-4 bg-gray-100/50 dark:bg-gray-700/30 rounded-lg">
                   <div className="flex items-center gap-3">
                     {getStatusIcon()}
                     <span className="font-medium">Status: {connectionStatus}</span>
@@ -271,9 +271,9 @@ export default function WebSocketApp() {
                     whileHover={{ scale: 1.05 }}
                     className="p-4 bg-gradient-to-br from-blue-500/10 to-blue-600/10 rounded-lg border border-blue-500/20"
                   >
-                    <Zap className="h-8 w-8 text-blue-400 mb-2" />
-                    <h3 className="font-semibold text-blue-300">WebSocket</h3>
-                    <p className="text-sm text-gray-400 mt-1">
+                    <Zap className="h-8 w-8 text-blue-600 dark:text-blue-400 mb-2" />
+                    <h3 className="font-semibold text-blue-700 dark:text-blue-300">WebSocket</h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
                       Full-duplex communication protocol for real-time data exchange
                     </p>
                   </motion.div>
@@ -282,9 +282,9 @@ export default function WebSocketApp() {
                     whileHover={{ scale: 1.05 }}
                     className="p-4 bg-gradient-to-br from-purple-500/10 to-purple-600/10 rounded-lg border border-purple-500/20"
                   >
-                    <Globe className="h-8 w-8 text-purple-400 mb-2" />
-                    <h3 className="font-semibold text-purple-300">SockJS</h3>
-                    <p className="text-sm text-gray-400 mt-1">
+                    <Globe className="h-8 w-8 text-purple-600 dark:text-purple-400 mb-2" />
+                    <h3 className="font-semibold text-purple-700 dark:text-purple-300">SockJS</h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
                       WebSocket-like object with fallback options for older browsers
                     </p>
                   </motion.div>
@@ -293,9 +293,9 @@ export default function WebSocketApp() {
                     whileHover={{ scale: 1.05 }}
                     className="p-4 bg-gradient-to-br from-pink-500/10 to-pink-600/10 rounded-lg border border-pink-500/20"
                   >
-                    <MessageSquare className="h-8 w-8 text-pink-400 mb-2" />
-                    <h3 className="font-semibold text-pink-300">STOMP</h3>
-                    <p className="text-sm text-gray-400 mt-1">
+                    <MessageSquare className="h-8 w-8 text-pink-600 dark:text-pink-400 mb-2" />
+                    <h3 className="font-semibold text-pink-700 dark:text-pink-300">STOMP</h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
                       Simple Text Oriented Messaging Protocol for message brokers
                     </p>
                   </motion.div>
@@ -310,7 +310,7 @@ export default function WebSocketApp() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Card className="bg-gray-800/50 border-gray-700 backdrop-blur-sm h-fit">
+            <Card className="bg-white/80 dark:bg-gray-800/50 border-gray-200 dark:border-gray-700 backdrop-blur-sm h-fit">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <MessageSquare className="h-5 w-5 text-green-400" />
@@ -325,7 +325,7 @@ export default function WebSocketApp() {
                       <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        className="text-center py-8 text-gray-500"
+                        className="text-center py-8 text-gray-500 dark:text-gray-400"
                       >
                         <MessageSquare className="h-12 w-12 mx-auto mb-2 opacity-50" />
                         <p>No notifications yet</p>
@@ -339,14 +339,14 @@ export default function WebSocketApp() {
                           animate={{ opacity: 1, x: 0, scale: 1 }}
                           exit={{ opacity: 0, x: -20, scale: 0.9 }}
                           transition={{ duration: 0.3 }}
-                          className="p-3 bg-gray-700/30 rounded-lg border-l-4 border-l-blue-500"
+                          className="p-3 bg-gray-100/50 dark:bg-gray-700/30 rounded-lg border-l-4 border-l-blue-500"
                         >
                           <div className="flex items-start gap-2">
                             {getNotificationIcon(notification.type)}
                             <div className="flex-1 min-w-0">
                               <p className="font-medium text-sm">{notification.title}</p>
-                              <p className="text-xs text-gray-400 mt-1">{notification.message}</p>
-                              <p className="text-xs text-gray-500 mt-1">
+                              <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">{notification.message}</p>
+                              <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">
                                 {notification.timestamp.toLocaleTimeString()}
                               </p>
                             </div>
@@ -368,7 +368,7 @@ export default function WebSocketApp() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="mt-12"
         >
-          <Card className="bg-gray-800/50 border-gray-700 backdrop-blur-sm">
+          <Card className="bg-white/80 dark:bg-gray-800/50 border-gray-200 dark:border-gray-700 backdrop-blur-sm">
             <CardHeader>
               <CardTitle>Technology Overview</CardTitle>
               <CardDescription>Understanding the technologies powering this real-time application</CardDescription>
@@ -376,8 +376,8 @@ export default function WebSocketApp() {
             <CardContent className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h3 className="text-lg font-semibold text-blue-300 mb-3">WebSocket Protocol</h3>
-                  <p className="text-gray-300 text-sm leading-relaxed">
+                  <h3 className="text-lg font-semibold text-blue-700 dark:text-blue-300 mb-3">WebSocket Protocol</h3>
+                  <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
                     WebSocket is a communication protocol that provides full-duplex communication channels over a single
                     TCP connection. Unlike traditional HTTP requests, WebSocket connections remain open, allowing for
                     real-time, bidirectional data exchange between client and server.
@@ -385,8 +385,8 @@ export default function WebSocketApp() {
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold text-purple-300 mb-3">SockJS Library</h3>
-                  <p className="text-gray-300 text-sm leading-relaxed">
+                  <h3 className="text-lg font-semibold text-purple-700 dark:text-purple-300 mb-3">SockJS Library</h3>
+                  <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
                     SockJS is a JavaScript library that provides a WebSocket-like object with fallback options. It
                     automatically chooses the best transport method available, ensuring compatibility across different
                     browsers and network configurations, including older browsers that don't support WebSocket.
@@ -394,8 +394,8 @@ export default function WebSocketApp() {
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold text-pink-300 mb-3">STOMP Protocol</h3>
-                  <p className="text-gray-300 text-sm leading-relaxed">
+                  <h3 className="text-lg font-semibold text-pink-700 dark:text-pink-300 mb-3">STOMP Protocol</h3>
+                  <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
                     STOMP (Simple Text Oriented Messaging Protocol) is a messaging protocol that defines the format and
                     rules for data exchange. It provides a frame-based protocol with commands like CONNECT, SEND,
                     SUBSCRIBE, and DISCONNECT, making it easy to work with message brokers.
@@ -403,8 +403,8 @@ export default function WebSocketApp() {
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold text-green-300 mb-3">Environment Configuration</h3>
-                  <p className="text-gray-300 text-sm leading-relaxed">
+                  <h3 className="text-lg font-semibold text-green-700 dark:text-green-300 mb-3">Environment Configuration</h3>
+                  <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
                     This application uses environment-specific configurations to handle different deployment scenarios.
                     Development environment connects to localhost, while production uses secure WebSocket connections
                     (WSS) for encrypted communication in production deployments.
@@ -412,14 +412,14 @@ export default function WebSocketApp() {
                 </div>
               </div>
 
-              <Separator className="bg-gray-700" />
+              <Separator className="bg-gray-300 dark:bg-gray-700" />
 
                               <div className="text-center">
-                  <div className="text-gray-400 text-sm">
+                  <div className="text-gray-600 dark:text-gray-400 text-sm">
                     Current Environment:{" "}
                     <Badge variant="outline">{appEnv}</Badge>
                   </div>
-                  <div className="text-gray-500 text-xs mt-1">
+                  <div className="text-gray-500 dark:text-gray-500 text-xs mt-1">
                     WebSocket URL: {websocketUrl}
                   </div>
                 </div>

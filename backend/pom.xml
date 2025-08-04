@@ -12,7 +12,7 @@
 	<artifactId>Notification</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Notification</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Demo project for Spring Boot with WebSocket animations</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -43,6 +43,24 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- WebSocket and STOMP support -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-websocket</artifactId>
+		</dependency>
+
+		<!-- JSON processing -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+
+		<!-- Validation -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 
 		<dependency>

@@ -41,7 +41,6 @@ export default function ConnectionPanel({
         <CardDescription>Manage your WebSocket connection with STOMP and SockJS</CardDescription>
       </CardHeader>
       <CardContent className="connection-panel-content">
-        {/* Status Display */}
         <div className="status-display">
           <div className="status-info">
             {getStatusIcon()}
@@ -52,7 +51,6 @@ export default function ConnectionPanel({
           </Badge>
         </div>
 
-        {/* Connection Buttons */}
         <div className="connection-buttons">
           <Button onClick={onConnect} disabled={isConnected || isConnecting} className="connect-button">
             {isConnecting ? (
@@ -79,7 +77,6 @@ export default function ConnectionPanel({
           </Button>
         </div>
 
-        {/* Technology Cards */}
         <TechnologyCards />
       </CardContent>
     </Card>

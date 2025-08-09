@@ -2,17 +2,14 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET(request: NextRequest) {
   try {
-    // Get the backend URL from environment variable or default to localhost
     const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8080'
     const healthEndpoint = `${backendUrl}/actuator/health`
     
-    // Make a request to the backend health endpoint
     const response = await fetch(healthEndpoint, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
-      // Add a timeout to prevent hanging requests
       signal: AbortSignal.timeout(3000)
     })
 

@@ -22,7 +22,6 @@ interface Notification {
   timestamp: Date
 }
 
-// Floating particles component
 function FloatingParticles({ color }: { color: string }) {
   const [mounted, setMounted] = useState(false)
 
@@ -60,7 +59,6 @@ function FloatingParticles({ color }: { color: string }) {
   )
 }
 
-// Animated gradient background
 function AnimatedGradient() {
   return (
     <div className="absolute inset-0 overflow-hidden">
@@ -110,13 +108,11 @@ export default function WebSocketApp() {
     }
     setNotifications((prev) => [newNotification, ...prev.slice(0, 4)])
 
-    // Auto remove after 5 seconds
     setTimeout(() => {
       setNotifications((prev) => prev.filter((n) => n.id !== newNotification.id))
     }, 5000)
   }
 
-  // Update connection status based on WebSocket state
   useEffect(() => {
     if (isConnected) {
       setConnectionStatus("Connected")
@@ -134,7 +130,6 @@ export default function WebSocketApp() {
     }
   }, [isConnected, isConnecting, canReconnect])
 
-  // Subscribe to notifications when connected
   useEffect(() => {
     if (isConnected) {
       const unsubscribe = subscribe("/topic/notifications", (message) => {
@@ -150,7 +145,6 @@ export default function WebSocketApp() {
         }
       })
 
-      // Send a test message
       setTimeout(() => {
         publish("/app/hello", { message: "Hello from client!" })
       }, 1000)
@@ -197,7 +191,6 @@ export default function WebSocketApp() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 text-gray-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 dark:text-white relative overflow-hidden">
-      {/* Enhanced Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           className="absolute -inset-10 opacity-20"
@@ -218,11 +211,9 @@ export default function WebSocketApp() {
       </div>
       <FloatingParticles color={status.color} />
       
-      {/* Health Indicator */}
       <HealthIndicator />
       
       <div className="relative z-10 container mx-auto px-4 py-8">
-        {/* Enhanced Header */}
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -253,7 +244,6 @@ export default function WebSocketApp() {
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Enhanced Connection Panel */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -284,7 +274,6 @@ export default function WebSocketApp() {
                   </motion.div>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  {/* Enhanced Status Display */}
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -328,7 +317,6 @@ export default function WebSocketApp() {
                     </motion.div>
                   </motion.div>
 
-                  {/* Enhanced Connection Buttons */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -401,7 +389,6 @@ export default function WebSocketApp() {
                     </motion.div>
                   </motion.div>
 
-                  {/* Enhanced Technology Info */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -476,7 +463,6 @@ export default function WebSocketApp() {
             </motion.div>
           </motion.div>
 
-          {/* Enhanced Notifications Panel */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -570,7 +556,6 @@ export default function WebSocketApp() {
           </motion.div>
         </div>
 
-        {/* Enhanced Information Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
